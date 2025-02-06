@@ -1,0 +1,13 @@
+{
+    "name": "Nuxt Development Environment",
+    "image": "node:lts",
+    "postCreateCommand": "npm install",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "vue.volar",
+                "nuxtr.nuxtr-vscode"
+            ]
+        }
+    }
+}
