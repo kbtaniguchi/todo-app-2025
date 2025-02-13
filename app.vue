@@ -6,10 +6,10 @@
     </button>
     <input type="text" v-model="input" />
     <ol>
-      <li v-for="item in list" :key="item.index">
+      <li v-for="(item, index) in list" :key="index">
         <input type="checkbox" v-model="item.isChecked" />
         {{ item.title }}
-        <button @click="remove(item.index)">remove</button>
+        <button @click="remove(index)">remove</button>
       </li>
     </ol>
   </div>
@@ -20,13 +20,12 @@ const input = ref<string>('')
 
 type Task = {
   isChecked: boolean,
-  title: string,
-  index: number
+  title: string
 }
 const list = ref<Task[]>([])
 
 const add = () => {
-  list.value.push({ isChecked: false, title: input.value, index: list.value.length })
+  list.value.push({ isChecked: false, title: input.value })
   input.value = ''
 }
 
