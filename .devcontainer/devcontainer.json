@@ -6,7 +6,8 @@
         "vscode": {
             "extensions": [
                 "vue.volar",
-                "nuxtr.nuxtr-vscode"
+                "nuxtr.nuxtr-vscode",
+                "bradlc.vscode-tailwindcss"
             ]
         }
     }

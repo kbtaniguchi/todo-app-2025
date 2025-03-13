@@ -1,18 +1,21 @@
 <template>
-  <div>
+  <UApp>
     <NuxtRouteAnnouncer />
-    <button @click="add">
+    <UContainer>
+      <h1 class="text-2xl">TODO APP</h1>
+    <UButton @click="add">
       add
-    </button>
-    <input type="text" v-model="input" />
+    </UButton>
+    <UInput type="text" v-model="input" />
     <ol>
       <li v-for="(item, index) in list" :key="index">
-        <input type="checkbox" v-model="item.isChecked" />
+        <UCheckbox type="checkbox" v-model="item.isChecked" />
         {{ item.title }}
-        <button @click="remove(index)">remove</button>
+        <UButton @click="remove(index)">remove</UButton>
       </li>
     </ol>
-  </div>
+    </UContainer>
+  </UApp>
 </template>
 
 <script lang="ts" setup>
