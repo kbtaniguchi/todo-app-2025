@@ -1,19 +1,19 @@
 <template>
   <UApp>
-    <NuxtRouteAnnouncer />
+    <NuxtRouteAnnouncer/>
     <UContainer>
       <h1 class="text-2xl">TODO APP</h1>
-    <UButton @click="add">
-      add
-    </UButton>
-    <UInput type="text" v-model="input" />
-    <ol>
-      <li v-for="(item, index) in list" :key="index">
-        <UCheckbox type="checkbox" v-model="item.isChecked" />
-        {{ item.title }}
-        <UButton @click="remove(index)">remove</UButton>
-      </li>
-    </ol>
+      <MyCluster gap="0">
+        <UButton @click="add">add</UButton>
+        <UInput type="text" v-model="input"/>
+      </MyCluster>
+      <MyStack>
+        <MyCluster v-for="(item, index) in list" :key="index">
+          <UCheckbox type="checkbox" v-model="item.isChecked"/>
+          {{ item.title }}
+          <UButton @click="remove(index)">remove</UButton>
+        </MyCluster>
+      </MyStack>
     </UContainer>
   </UApp>
 </template>
@@ -28,7 +28,7 @@ type Task = {
 const list = ref<Task[]>([])
 
 const add = () => {
-  list.value.push({ isChecked: false, title: input.value })
+  list.value.push({isChecked: false, title: input.value})
   input.value = ''
 }
 
